@@ -23,14 +23,22 @@ signal.signal(signal.SIGINT, signal_handler)
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 0)
+    GPIO.cleanup()
 
 while True:
-    GPIO.output(red, 1)
-    sleep(2)
-    GPIO.output(red, 0)
-    GPIO.output(yellow, 1)
-    sleep(1)
-    GPIO.output(yellow, 0)
-    GPIO.output(green, 1)
-    sleep(2)
-    GPIO.output(green, 0)
+    try:
+        GPIO.output(red, 1)
+        sleep(2)
+        GPIO.output(red, 0)
+        GPIO.output(yellow, 1)
+        sleep(1)
+        GPIO.output(yellow, 0)
+        GPIO.output(green, 1)
+        sleep(2)
+        GPIO.output(green, 0)
+    except KeyboardInterrupt:
+        print("Keyboard interrupt")
+    except Exception as e:
+        print(f"Some other error: {e}")
+    finally:
+        signal_handler()

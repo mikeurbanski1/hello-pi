@@ -19,6 +19,12 @@ def signal_handler(sig=None, frame=None):
     sys.exit(0)
 
 
+def toggle_light(code):
+    new_val = 1 - states[p]
+    GPIO.output(pins[p], new_val)
+    states[p] = new_val
+
+
 signal.signal(signal.SIGINT, signal_handler)
 
 for pin in pins.values():
@@ -30,15 +36,15 @@ states = {'r': 0, 'y': 0, 'g': 0}
 
 try:
     while True:
-        line = sys.stdin.readline()
+        line = sys.stdin.readline().rstrip()
+        print(line)
         parts = line.split(' ')
+        print(parts)
         for p in parts:
             if p not in ['r', 'y', 'g']:
                 print(f'Ignoring: {p}')
             else:
-                new_val = 1 - states[p]
-                GPIO.output(pins[p], new_val)
-                states[p] = new_val
+                toggle_light(p)
         # GPIO.output(red, 1)
         # sleep(2)
         # GPIO.output(red, 0)

@@ -1,10 +1,22 @@
+aniso8601==8.0.0
 cffi==1.14.0
+click==7.1.2
 colorzero==1.1
+cryptography==2.9.2
+Flask==1.1.2
+Flask-Ask @ git+https://github.com/johnwheeler/flask-ask.git@8fa6aa052a8a4b5273cbcceb48e926b41dbe8a32
 gpiozero==1.5.1
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
 numpy==1.18.4
 playsound==1.2.2
 pycparser==2.20
 pydub==0.24.0
+pyOpenSSL==19.1.0
+PyYAML==5.3.1
 RPi.GPIO==0.7.0
 scipy==1.4.1
+six==1.15.0
 sounddevice==0.3.15
+Werkzeug==1.0.1

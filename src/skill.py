@@ -20,7 +20,7 @@ if __name__ == '__main__':
     try:
         print('setting up')
         GPIO.setmode(GPIO.BCM)
-        pins = {'red': 9, 'yellow': 10, 'green': 11}
+        pins = {'red': 2, 'yellow': 3, 'green': 4}
         for pin in pins.values():
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, 0)

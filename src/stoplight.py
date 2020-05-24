@@ -15,6 +15,7 @@ def signal_handler(sig, frame):
     print('You pressed Ctrl+C!')
     for pin in pins:
         GPIO.output(pin, 0)
+    GPIO.cleanup()
     sys.exit(0)
 
 
@@ -23,7 +24,6 @@ signal.signal(signal.SIGINT, signal_handler)
 for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 0)
-    GPIO.cleanup()
 
 while True:
     try:

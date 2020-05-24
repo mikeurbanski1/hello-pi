@@ -35,8 +35,9 @@ def rave():
 
 def do_rave(thread_name):
     count = 0
+    options = list(states.keys())
     while count < 50:
-        color = random.choice(states.keys())
+        color = random.choice(options)
         GPIO.output(pins[color], GPIO.HIGH if states[color] == 0 else GPIO.LOW)
         states[color] = 1 - states[color]
         count += 1

@@ -1,0 +1,9 @@
+cffi==1.14.0
+colorzero==1.1
+gpiozero==1.5.1
+numpy==1.18.4
+playsound==1.2.2
+pycparser==2.20
+pydub==0.24.0
+scipy==1.4.1
+sounddevice==0.3.15

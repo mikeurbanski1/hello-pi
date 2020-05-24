@@ -21,7 +21,7 @@ def signal_handler(sig=None, frame=None):
 
 signal.signal(signal.SIGINT, signal_handler)
 
-for pin in pins:
+for pin in pins.values():
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 0)
 

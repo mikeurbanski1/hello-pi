@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import sys
+import signal
 from time import sleep
 
 GPIO.setmode(GPIO.BCM)
@@ -7,9 +8,21 @@ GPIO.setmode(GPIO.BCM)
 red = int(sys.argv[1])
 yellow = int(sys.argv[2])
 green = int(sys.argv[3])
+pins = [red, yellow, green]
 
-for pin in [red, yellow, green]:
+
+def signal_handler(sig, frame):
+    print('You pressed Ctrl+C!')
+    for pin in pins:
+        GPIO.output(pin, 0)
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
+
+for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, 0)
 
 while True:
     GPIO.output(red, 1)

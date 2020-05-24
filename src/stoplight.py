@@ -25,8 +25,8 @@ for pin in pins:
     GPIO.setup(pin, GPIO.OUT)
     GPIO.output(pin, 0)
 
-while True:
-    try:
+try:
+    while True:
         GPIO.output(red, 1)
         sleep(2)
         GPIO.output(red, 0)
@@ -36,9 +36,7 @@ while True:
         GPIO.output(green, 1)
         sleep(2)
         GPIO.output(green, 0)
-    except KeyboardInterrupt:
-        print("Keyboard interrupt")
-    except Exception as e:
-        print(f"Some other error: {e}")
-    finally:
-        signal_handler()
+
+except Exception as e:
+    print(f"Error: {e}")
+    signal_handler()

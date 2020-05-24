@@ -11,7 +11,7 @@ green = int(sys.argv[3])
 pins = [red, yellow, green]
 
 
-def signal_handler(sig, frame):
+def signal_handler(sig=None, frame=None):
     print('You pressed Ctrl+C!')
     for pin in pins:
         GPIO.output(pin, 0)

@@ -8,6 +8,7 @@ ask = Ask(app, '/')
 
 @ask.intent('LedIntent')
 def led(color, status):
+    print(f'Got request to turn {color} {status}')
     if color.lower() not in pins.keys():
         return statement("I don't have {} light".format(color))
     GPIO.output(pins[color], GPIO.HIGH if status == 'on' else GPIO.LOW)
@@ -23,4 +24,5 @@ if __name__ == '__main__':
             GPIO.output(pin, 0)
         app.run(debug=True)
     finally:
+        print('Cleaning up')
         GPIO.cleanup()

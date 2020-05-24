@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_ask import Ask, statement
 import RPi.GPIO as GPIO
+from time import sleep
 
 app = Flask(__name__)
 ask = Ask(app, '/')
@@ -23,6 +24,7 @@ if __name__ == '__main__':
         for pin in pins.values():
             GPIO.setup(pin, GPIO.OUT)
             GPIO.output(pin, 0)
+        sleep(2)
         app.run(debug=True)
     finally:
         print('Cleaning up')

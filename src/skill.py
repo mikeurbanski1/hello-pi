@@ -20,7 +20,7 @@ def led(color, status):
     if color not in pins.keys():
         return statement("I don't have {} light".format(color))
     if status not in ['on', 'off']:
-        return statement(f"I can't turn a light {color}")
+        return statement(f"I can't turn a light {status}")
     GPIO.output(pins[color], GPIO.HIGH if status == 'on' else GPIO.LOW)
     states[color] = 1 if status == 'on' else 0
     return statement('Turning the {} light {}'.format(color, status))
@@ -28,6 +28,14 @@ def led(color, status):
 
 @ask.intent('RaveIntent')
 def rave():
+    print(f'Got request for a rave')
+    _thread.start_new_thread(do_rave, ("Rave thread", ))
+    _thread.
+    return statement('Rave hard, my friend')
+
+
+@ask.intent('StopRaveIntent')
+def stop_rave():
     print(f'Got request for a rave')
     _thread.start_new_thread(do_rave, ("Rave thread", ))
     return statement('Rave hard, my friend')

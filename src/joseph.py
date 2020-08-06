@@ -35,9 +35,9 @@ try:
         if new_val != last:
             print(f'New value: {new_val}')
             if new_val:
-                GPIO.output(LED, 1)
-            else:
                 GPIO.output(LED, 0)
+            else:
+                GPIO.output(LED, 1)
 
         last = new_val
         sleep(0.1)

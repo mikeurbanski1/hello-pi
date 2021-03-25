@@ -14,7 +14,7 @@ playsound==1.2.2
 pycparser==2.20
 pydub==0.24.0
 pyOpenSSL==19.1.0
-PyYAML==5.3.1
+PyYAML==5.4
 RPi.GPIO==0.7.0
 scipy==1.4.1
 six==1.15.0

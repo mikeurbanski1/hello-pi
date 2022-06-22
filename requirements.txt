@@ -9,7 +9,7 @@ gpiozero==1.5.1
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-numpy==1.18.4
+numpy==1.22.0
 playsound==1.2.2
 pycparser==2.20
 pydub==0.24.0
